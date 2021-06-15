@@ -1,0 +1,32 @@
+{
+   "restaurantName":"Bill's Taco Shop",
+   "restaurantIcon":"tacoshoplogo.png",
+   "restaurantDescription":"Taco's Made fresh",
+   "categories":[
+      {
+         "categoryName":"Drinks",
+         "categoryItems":[
+            {
+               "itemName":"Soda",
+               "itemPrice":"1.50",
+               "itemPicture":"soda.png"
+            },
+            {
+               "itemName":"Water Bottle",
+               "itemPrice":"1.00",
+               "itemPicture":"water_bottle.png"
+            }
+         ]
+      },
+      {
+         "categoryName":"",
+         "categoryItems":[
+            {
+               "itemName":"",
+               "itemPrice":"",
+               "itemPicture":""
+            }
+         ]
+      }
+   ]
+}
