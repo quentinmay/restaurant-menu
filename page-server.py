@@ -4,16 +4,21 @@ from urllib.parse import urlparse
 from urllib.parse import parse_qs
 from urllib import parse
 
+from io import BytesIO
+
+import json
+
 class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         # Sending an '200 OK' response
         self.send_response(200)
 
         # Setting the header
-        self.send_header("Content-type", "text/html")
+        # self.send_header("Content-type", "application/json")
+        # self.send_header("Content-type", "text/html")
 
         # Whenever using 'send_header', you also have to call 'end_headers'
-        self.end_headers()
+        # self.end_headers()
 
         # Extract query param
         # global name 
@@ -21,13 +26,17 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
         # print('query_components', query_components)
         # if 'name' in query_components:
         #     name = query_components["name"][0]
-        parse_res=parse.urlparse(self.path)
-        print('parse_res', parse_res.path[1:])
+        # parse_res=parse.urlparse(self.path)
+        # print('parse_res', parse_res.path[1:])
 
         # tacoshop = 
 
         if self.path == '/tacoshop':
             self.path = './public'+ self.path + '.html'
+        elif self.path.endswith('.json'):
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            self.path = './public'+ self.path
         else:
             self.path = './public'+ self.path
 
@@ -44,6 +53,22 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         #return
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
+
+
+    def do_POST(self):
+
+        if self.path == '/upload':
+            content_length = int(self.headers['Content-Length'])
+            body = self.rfile.read(content_length)
+            self.send_response(200)
+            self.end_headers()
+            data = json.loads(body)
+            print(body)
+            response = BytesIO()
+            response.write(b'This is POST request. ')
+            response.write(b'Received: ')
+            response.write(body)
+            self.wfile.write(response.getvalue())
 
 # Create an object of the above class
 handler_object = MyHttpRequestHandler
