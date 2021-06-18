@@ -35,11 +35,13 @@
             },
             {
                "itemName":"Soft Taco",
+               "itemDescription":"",
                "itemPrice":"1.00",
                "itemPicture":"soft_taco.png"
             },
             {
                "itemName":"Soft Taco Supreme",
+               "itemDescription":"",
                "itemPrice":"1.50",
                "itemPicture":"soft_taco_supreme.png"
             }
@@ -48,19 +50,23 @@
       {
          "categoryName":"Burritos",
          "categoryDescription": "These are the burritos",
+         "categoryPicture": "",
          "categoryItems":[
             {
                "itemName":"Bean Burrito",
+               "itemDescription":"",
                "itemPrice":"1.50",
                "itemPicture":"bean_burrito.png"
             },
             {
                "itemName":"Burrito Supreme",
+               "itemDescription":"",
                "itemPrice":"1.75",
                "itemPicture":"burrito_supreme.png"
             },
             {
                "itemName":"Crunch Wrap",
+               "itemDescription":"",
                "itemPrice":"3.50",
                "itemPicture":"crunch_wrap.png"
             }
