@@ -6,14 +6,17 @@
       {
          "categoryName":"Drinks",
          "categoryDescription": "These are the drinks",
+         "categoryPicture": "drinks_category.png",
          "categoryItems":[
             {
                "itemName":"Soda",
+               "itemDescription": "Cold soda to feed your sugar rush",
                "itemPrice":"1.50",
                "itemPicture":"soda.png"
             },
             {
                "itemName":"Water Bottle",
+               "itemDescription": "Refreshing all natural gluten-free water",
                "itemPrice":"1.00",
                "itemPicture":"water_bottle.png"
             }
@@ -22,9 +25,11 @@
       {
          "categoryName":"Tacos",
          "categoryDescription": "These are the tacos",
+         "categoryPicture": "tacos_category.png",
          "categoryItems":[
             {
                "itemName":"Crunchy Taco",
+               "itemDescription":"As crunchy and delicious as they get",
                "itemPrice":"1.00",
                "itemPicture":"crunchy_taco.png"
             },
