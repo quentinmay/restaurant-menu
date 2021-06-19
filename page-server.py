@@ -72,8 +72,8 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(response.getvalue())
 
 
-            with open('./public/example111.json', 'w+') as fileToSave:
-                 json.dump(dataJson, fileToSave, ensure_ascii=True, indent=4)
+            with open('./public' + dataJson["fileName"], 'w+') as fileToSave:
+                 json.dump(dataJson["menu"], fileToSave, ensure_ascii=True, indent=4)
 
 
         if self.path == '/picture':

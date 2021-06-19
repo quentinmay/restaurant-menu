@@ -1,76 +1,76 @@
 {
-   "restaurantName":"Bill's Taco Shop",
-   "restaurantIcon":"tacoshoplogo.png",
-   "restaurantDescription":"Taco's Made fresh",
-   "categories":[
-      {
-         "categoryName":"Drinks",
-         "categoryDescription": "These are the drinks",
-         "categoryPicture": "drinks_category.png",
-         "categoryItems":[
-            {
-               "itemName":"Soda",
-               "itemDescription": "Cold soda to feed your sugar rush",
-               "itemPrice":"1.50",
-               "itemPicture":"soda.png"
-            },
-            {
-               "itemName":"Water Bottle",
-               "itemDescription": "Refreshing all natural gluten-free water",
-               "itemPrice":"1.00",
-               "itemPicture":"water_bottle.png"
-            }
-         ]
-      },
-      {
-         "categoryName":"Tacos",
-         "categoryDescription": "These are the tacos",
-         "categoryPicture": "tacos_category.png",
-         "categoryItems":[
-            {
-               "itemName":"Crunchy Taco",
-               "itemDescription":"As crunchy and delicious as they get",
-               "itemPrice":"1.00",
-               "itemPicture":"crunchy_taco.png"
-            },
-            {
-               "itemName":"Soft Taco",
-               "itemDescription":"",
-               "itemPrice":"1.00",
-               "itemPicture":"soft_taco.png"
-            },
-            {
-               "itemName":"Soft Taco Supreme",
-               "itemDescription":"",
-               "itemPrice":"1.50",
-               "itemPicture":"soft_taco_supreme.png"
-            }
-         ]
-      },
-      {
-         "categoryName":"Burritos",
-         "categoryDescription": "These are the burritos",
-         "categoryPicture": "",
-         "categoryItems":[
-            {
-               "itemName":"Bean Burrito",
-               "itemDescription":"",
-               "itemPrice":"1.50",
-               "itemPicture":"bean_burrito.png"
-            },
-            {
-               "itemName":"Burrito Supreme",
-               "itemDescription":"",
-               "itemPrice":"1.75",
-               "itemPicture":"burrito_supreme.png"
-            },
-            {
-               "itemName":"Crunch Wrap",
-               "itemDescription":"",
-               "itemPrice":"3.50",
-               "itemPicture":"crunch_wrap.png"
-            }
-         ]
-      }
-   ]
+    "restaurantName": "Bill's Taco Shop",
+    "restaurantIcon": "tacoshoplogo.jpg",
+    "restaurantDescription": "Taco's Made fresh",
+    "categories": [
+        {
+            "categoryName": "Drinks",
+            "categoryDescription": "These are the drinks",
+            "categoryPicture": "drinks_category.jpg",
+            "categoryItems": [
+                {
+                    "itemName": "Soda",
+                    "itemDescription": "Cold soda to feed your sugar rush",
+                    "itemPrice": "1.50",
+                    "itemPicture": "soda.jpg"
+                },
+                {
+                    "itemName": "Water Bottle",
+                    "itemDescription": "Refreshing all natural gluten-free water",
+                    "itemPrice": "1.00",
+                    "itemPicture": "water_bottle.jpg"
+                }
+            ]
+        },
+        {
+            "categoryName": "Tacos",
+            "categoryDescription": "These are the tacos",
+            "categoryPicture": "tacos_category.jpg",
+            "categoryItems": [
+                {
+                    "itemName": "Crunchy Taco",
+                    "itemDescription": "As crunchy and delicious as they get",
+                    "itemPrice": "1.00",
+                    "itemPicture": "crunchy_taco.jpg"
+                },
+                {
+                    "itemName": "Soft Taco",
+                    "itemDescription": "",
+                    "itemPrice": "1.00",
+                    "itemPicture": "soft_taco.jpg"
+                },
+                {
+                    "itemName": "Soft Taco Supreme",
+                    "itemDescription": "",
+                    "itemPrice": "1.50",
+                    "itemPicture": "soft_taco_supreme.jpg"
+                }
+            ]
+        },
+        {
+            "categoryName": "Burritos",
+            "categoryDescription": "These are the burritos",
+            "categoryPicture": "burritos_category.jpg",
+            "categoryItems": [
+                {
+                    "itemName": "Bean Burrito",
+                    "itemDescription": "",
+                    "itemPrice": "1.50",
+                    "itemPicture": "bean_burrito.jpg"
+                },
+                {
+                    "itemName": "Burrito Supreme",
+                    "itemDescription": "",
+                    "itemPrice": "1.75",
+                    "itemPicture": "burrito_supreme.jpg"
+                },
+                {
+                    "itemName": "Crunch Wrap",
+                    "itemDescription": "",
+                    "itemPrice": "3.50",
+                    "itemPicture": "crunch_wrap.jpg"
+                }
+            ]
+        }
+    ]
 }
