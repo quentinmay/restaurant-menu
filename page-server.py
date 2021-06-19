@@ -1,10 +1,11 @@
 import http.server
 import socketserver
-from urllib.parse import urlparse
-from urllib.parse import parse_qs
+from urllib.parse import urlparse, parse_qs
 from urllib import parse
-
+import io
 from io import BytesIO
+from PIL import Image
+import base64
 
 import json
 
@@ -59,16 +60,39 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         if self.path == '/upload':
             content_length = int(self.headers['Content-Length'])
-            body = self.rfile.read(content_length)
+            post_data = self.rfile.read(content_length)
             self.send_response(200)
             self.end_headers()
-            data = json.loads(body)
-            print(body)
+            dataJson = json.loads(post_data)
+
             response = BytesIO()
             response.write(b'This is POST request. ')
             response.write(b'Received: ')
-            response.write(body)
+            response.write(post_data)
             self.wfile.write(response.getvalue())
+
+
+            with open('./public/example111.json', 'w+') as fileToSave:
+                 json.dump(dataJson, fileToSave, ensure_ascii=True, indent=4)
+
+
+        if self.path == '/picture':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            self.send_response(200)
+            self.end_headers()
+            dataJson = json.loads(post_data)
+
+            image = base64.b64decode(dataJson["fileData"])
+            response = BytesIO()
+            response.write(b'This is POST request. ')
+            response.write(b'Received: ')
+            response.write(post_data)
+            self.wfile.write(response.getvalue())
+
+            img = Image.open(io.BytesIO(image))
+            img.save("./public/" + dataJson["fileName"], 'jpeg')
+
 
 # Create an object of the above class
 handler_object = MyHttpRequestHandler
