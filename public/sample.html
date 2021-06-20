@@ -22,8 +22,7 @@
     <script>
         loadJson();
         async function loadJson() {
-            var json = await $.getJSON(`${location.protocol}//${location.host}/tacoshop.json`);
-            // console.log(data.categories);
+            var json = await $.getJSON(`${window.location.href}.json`);
             for(var category of json.categories) {
 
 

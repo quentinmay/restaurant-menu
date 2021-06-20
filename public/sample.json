@@ -1,0 +1,25 @@
+{
+    "restaurantName": "Bill's Taco Shop",
+    "restaurantIcon": "tacoshoplogo.jpg",
+    "restaurantDescription": "Taco's Made fresh",
+    "categories": [
+        {
+            "categoryName": "Pizza",
+            "categoryDescription": "Delicious pizza",
+            "categoryPicture": "pizza.jpg",
+            "categoryItems": []
+        },
+        {
+            "categoryName": "Burritos",
+            "categoryDescription": "Delicious burritos",
+            "categoryPicture": "074a3680-3adc-4aae-85f5-1e3a4f2caa34.jpg",
+            "categoryItems": []
+        },
+        {
+            "categoryName": "Tacos",
+            "categoryDescription": "Declious tacos",
+            "categoryPicture": "Taco_Crispy_Beef_990x725.jpg",
+            "categoryItems": []
+        }
+    ]
+}
