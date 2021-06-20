@@ -37,12 +37,20 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
         elif self.path.endswith('.json'):
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.path = './public'+ self.path
+            self.path = './public' + self.path
+        elif self.path.endswith('.jpg'):
+            self.send_header('Content-type', 'image/jpg')
+            self.end_headers()
+            self.path = './public/media' + self.path
+            f = open(self.path, 'rb')
+            self.wfile.write(f.read())
+            f.close()
+            return
         else:
             self.path = './public'+ self.path
 
         print(self.path)
-
+        
         # self.path = './public/'+'.html'
         
         
@@ -50,7 +58,7 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
         # html = f"<html><head></head><body><h1>Hello {name}!</h1></body></html>"
 
         # # Writing the HTML contents with UTF-8
-        # self.wfile.write(bytes(html, "utf8"))
+
 
         #return
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
@@ -91,7 +99,7 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(response.getvalue())
 
             img = Image.open(io.BytesIO(image))
-            img.save("./public/" + dataJson["fileName"], 'jpeg')
+            img.save("./public/media/" + dataJson["fileName"], 'jpeg')
 
 
 # Create an object of the above class

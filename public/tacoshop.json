@@ -6,69 +6,75 @@
         {
             "categoryName": "Drinks",
             "categoryDescription": "These are the drinks",
-            "categoryPicture": "drinks_category.jpg",
+            "categoryPicture": "",
             "categoryItems": [
                 {
                     "itemName": "Soda",
                     "itemDescription": "Cold soda to feed your sugar rush",
                     "itemPrice": "1.50",
-                    "itemPicture": "soda.jpg"
+                    "itemPicture": ""
                 },
                 {
                     "itemName": "Water Bottle",
                     "itemDescription": "Refreshing all natural gluten-free water",
                     "itemPrice": "1.00",
-                    "itemPicture": "water_bottle.jpg"
+                    "itemPicture": ""
                 }
             ]
         },
         {
             "categoryName": "Tacos",
             "categoryDescription": "These are the tacos",
-            "categoryPicture": "tacos_category.jpg",
+            "categoryPicture": "",
             "categoryItems": [
                 {
                     "itemName": "Crunchy Taco",
                     "itemDescription": "As crunchy and delicious as they get",
                     "itemPrice": "1.00",
-                    "itemPicture": "crunchy_taco.jpg"
+                    "itemPicture": ""
                 },
                 {
                     "itemName": "Soft Taco",
                     "itemDescription": "",
                     "itemPrice": "1.00",
-                    "itemPicture": "soft_taco.jpg"
+                    "itemPicture": ""
                 },
                 {
                     "itemName": "Soft Taco Supreme",
                     "itemDescription": "",
                     "itemPrice": "1.50",
-                    "itemPicture": "soft_taco_supreme.jpg"
+                    "itemPicture": ""
+                },
+                {
+                    "itemName": "Pizza",
+                    "itemDescription": "this is a pizza",
+                    "itemPrice": "100.00",
+                    "itemPicture": "pizza.jpg"
                 }
             ]
         },
         {
             "categoryName": "Burritos",
             "categoryDescription": "These are the burritos",
-            "categoryPicture": "burritos_category.jpg",
+            "categoryPicture": "",
             "categoryItems": [
                 {
                     "itemName": "Bean Burrito",
                     "itemDescription": "",
                     "itemPrice": "1.50",
-                    "itemPicture": "bean_burrito.jpg"
+                    "itemPicture": ""
                 },
                 {
                     "itemName": "Burrito Supreme",
                     "itemDescription": "",
                     "itemPrice": "1.75",
-                    "itemPicture": "burrito_supreme.jpg"
+                    "itemPicture": ""
                 },
                 {
                     "itemName": "Crunch Wrap",
                     "itemDescription": "",
                     "itemPrice": "3.50",
-                    "itemPicture": "crunch_wrap.jpg"
+                    "itemPicture": ""
                 }
             ]
         }
