@@ -1,0 +1,8 @@
+public/media/*
+public/*
+
+
+!public/media/favicon.ico
+!public/media/
+
+!public/tacoshop.json

@@ -46,6 +46,8 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(f.read())
             f.close()
             return
+        elif self.path == "/favicon.ico":
+            self.path = './public/media'+ self.path
         else:
             self.path = './public'+ self.path
 
