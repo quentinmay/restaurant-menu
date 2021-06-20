@@ -51,7 +51,13 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             f.close()
             return
         elif self.path == "/favicon.ico":
+            self.send_header("Content-type", "image/x-icon")
+            self.end_headers()
             self.path = './public/media'+ self.path
+            f = open(self.path, 'rb')
+            self.wfile.write(f.read())
+            f.close()
+            return
         elif self.path == "/sample":
             self.send_header("Content-type", "text/html")
             self.end_headers()
