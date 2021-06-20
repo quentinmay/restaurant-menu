@@ -66,6 +66,14 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(f.read())
             f.close()
             return
+        elif self.path.endswith('.css'):
+            self.send_header("Content-type", "text/css")
+            self.end_headers()
+            self.path = "./public" + self.path
+            f = open(self.path, 'rb')
+            self.wfile.write(f.read())
+            f.close()
+            return
         else:
             self.path = './public'+ self.path
 
