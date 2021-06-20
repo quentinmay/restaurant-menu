@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title id="title"></title>
+  <meta name="description" content="">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sample.css">
+
+</head>
+
+<body>
+    <h1 id="header">Restaurant Menu Title</h1>
+    <div class="container"></div>
+        <div class="row" id="grid">
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        loadJson();
+        async function loadJson() {
+            var json = await $.getJSON(`${location.protocol}//${location.host}/tacoshop.json`);
+            // console.log(data.categories);
+            for(var category of json.categories) {
+
+
+                var yourHtml = 
+                `<div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="${category.categoryPicture}">
+                    <img src="${category.categoryPicture}" alt="Picture" style="width:100%">
+                    <span class="overlay-text">${category.categoryName}</span>
+                    </a>
+                </div>
+                </div>`;
+                
+                document.getElementById("grid").innerHTML += yourHtml;
+                console.log(`adding ${category.categoryName}`)
+            }
+            document.getElementById("title").textContent = json.restaurantName;
+            document.getElementById("header").textContent = json.restaurantName;
+
+
+        }
+
+
+    </script>
+</body>
+</html>

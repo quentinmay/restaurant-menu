@@ -4,5 +4,6 @@ public/*
 
 !public/media/favicon.ico
 !public/media/
-
+!public/sample.html
+!public/sample.css
 !public/tacoshop.json

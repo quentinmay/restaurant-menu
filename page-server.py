@@ -38,6 +38,10 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             self.path = './public' + self.path
+            f = open(self.path, 'rb')
+            self.wfile.write(f.read())
+            f.close()
+            return
         elif self.path.endswith('.jpg'):
             self.send_header('Content-type', 'image/jpg')
             self.end_headers()
@@ -48,6 +52,14 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             return
         elif self.path == "/favicon.ico":
             self.path = './public/media'+ self.path
+        elif self.path == "/sample":
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.path = "./public/sample.html"
+            f = open(self.path, 'rb')
+            self.wfile.write(f.read())
+            f.close()
+            return
         else:
             self.path = './public'+ self.path
 
