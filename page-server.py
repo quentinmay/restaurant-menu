@@ -93,8 +93,13 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
     def do_POST(self):
-
-        if self.path == '/upload':
+        credentials = "username:password"
+        message_bytes = credentials.encode('ascii')
+        base64_bytes = base64.b64encode(message_bytes)
+        base64_credentials = base64_bytes.decode('ascii')
+        if self.headers['Authorization'] != "Basic " + base64_credentials:
+            return
+        elif self.path == '/upload':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             self.send_response(200)
@@ -110,9 +115,7 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
             with open('./public' + dataJson["fileName"], 'w+') as fileToSave:
                  json.dump(dataJson["menu"], fileToSave, ensure_ascii=True, indent=4)
-
-
-        if self.path == '/picture':
+        elif self.path == '/picture':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             self.send_response(200)
