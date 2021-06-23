@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_file
 import json
 import base64
+from PIL import Image
 import io
 
 app = Flask(__name__, template_folder="public")
@@ -51,12 +52,12 @@ def upload():
 	if not authenticate_user(auth):
 		return "Access denied"
 
-	datajson = request.get_json()
+	dataJson = request.get_json()
 
 	with open('./public' + dataJson["fileName"], 'w+') as fileToSave:
 		json.dump(dataJson["menu"], fileToSave, ensure_ascii=True, indent=4)
 
-	return "Data received: " + str(datajson)
+	return "Data received: " + str(dataJson)
 
 @app.route('/picture', methods=['POST'])
 def picture():
@@ -65,14 +66,14 @@ def picture():
 	if not authenticate_user(auth):
 		return "Access denied"
 
-	datajson = request.get_json()
+	dataJson = request.get_json()
 
 	image = base64.b64decode(dataJson["fileData"])
 	img = Image.open(io.BytesIO(image))
 	img.save("./public/media/" + dataJson["fileName"], 'jpeg')
 
-	return "Data received: " + str(datajson)
+	return "Data received: " + str(dataJson)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=80)
