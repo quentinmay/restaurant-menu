@@ -5,6 +5,9 @@ from PIL import Image
 import io
 import os
 import stripe
+# refer from: https://stripe.com/docs/legacy-checkout/flask
+# bank account: https://stripe.com/docs/testing
+# sudo PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx SECRET_KEY=sk_test_4eC39HqLyjWDarjtT1zdp7dc python3 flask-server.py
 
 # stripe setting for payment
 stripe_keys = {
