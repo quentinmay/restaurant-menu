@@ -15,22 +15,31 @@
 <body>
     <h1 id="header">Restaurant Menu Title</h1>
     <div class="container"></div>
-        <div class="row" id="grid">
-        </div>
+        <div class="row" id="grid"></div>
     </div>
+    <h1 id="categoryHeader"></h1>
+    <ul id="itemList"></ul>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
+        var json;
         loadJson();
+        
+
         async function loadJson() {
-            var json = await $.getJSON(`${window.location.href}.json`);
+            json = await $.getJSON(`${window.location.href}.json`);
+            loadCategories();
+        }
+
+        async function loadCategories() {
+
             for(var category of json.categories) {
 
 
                 var yourHtml = 
                 `<div class="col-md-4">
                 <div class="thumbnail">
-                    <a href="${category.categoryPicture}">
-                    <img src="${category.categoryPicture}" alt="Picture" style="width:100%">
+                    <a href="#" onclick="loadCategory(this); return false;">
+                    <img src="${category.categoryPicture}" alt="${category.categoryName}" style="width:100%" >
                     <span class="overlay-text">${category.categoryName}</span>
                     </a>
                 </div>
@@ -41,9 +50,34 @@
             }
             document.getElementById("title").textContent = json.restaurantName;
             document.getElementById("header").textContent = json.restaurantName;
+        }
+            
+        function loadCategory(cat) {
+
+            var categoryName;
+            for (let i = 0; i < cat.children.length; i++) {
+                if (cat.children[i].tagName == "IMG") {
+                    categoryName = cat.children[i].alt;
+                }
+            }
+
+            var category = json.categories.find(c => c.categoryName == categoryName);
+            console.log(`Populating item list with category: ${category.categoryName}`);
+
+            document.getElementById("categoryHeader").textContent = category.categoryName;
+
+            var itemList = document.getElementById('itemList')
+            itemList.innerHTML = '';
+
+            for(var item of category.categoryItems) {
+                let li = document.createElement('li');
+                itemList.appendChild(li);
+                li.innerHTML += `${item.itemName} - $${item.itemPrice}`;
+            }
 
 
         }
+
 
 
     </script>

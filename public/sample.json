@@ -1,25 +1,50 @@
 {
-    "restaurantName": "Bill's Taco Shop",
-    "restaurantIcon": "tacoshoplogo.jpg",
-    "restaurantDescription": "Taco's Made fresh",
     "categories": [
         {
-            "categoryName": "Pizza",
             "categoryDescription": "Delicious pizza",
-            "categoryPicture": "pizza.jpg",
-            "categoryItems": []
+            "categoryItems": [
+                {
+                    "itemName": "Pepperoni Pizza",
+                    "itemDescription": "this is a pepperoni pizza",
+                    "itemPrice": "12.00",
+                    "itemPicture": "pizza.jpg"
+                },
+                {
+                    "itemName": "Large Pizza",
+                    "itemDescription": "asdf",
+                    "itemPrice": "10.00",
+                    "itemPicture": "pizza.jpg"
+                },
+                {
+                    "itemName": "Cheese Pizza",
+                    "itemDescription": "asdfasdf",
+                    "itemPrice": "8.00",
+                    "itemPicture": "pizza.jpg"
+                }
+            ],
+            "categoryName": "Pizza",
+            "categoryPicture": "pizza.jpg"
         },
         {
-            "categoryName": "Burritos",
             "categoryDescription": "Delicious burritos",
-            "categoryPicture": "074a3680-3adc-4aae-85f5-1e3a4f2caa34.jpg",
-            "categoryItems": []
+            "categoryItems": [],
+            "categoryName": "Burritos",
+            "categoryPicture": "074a3680-3adc-4aae-85f5-1e3a4f2caa34.jpg"
         },
         {
-            "categoryName": "Tacos",
             "categoryDescription": "Declious tacos",
-            "categoryPicture": "Taco_Crispy_Beef_990x725.jpg",
-            "categoryItems": []
+            "categoryItems": [],
+            "categoryName": "Tacos",
+            "categoryPicture": "Taco_Crispy_Beef_990x725.jpg"
+        },
+        {
+            "categoryDescription": "asdfasdf",
+            "categoryItems": [],
+            "categoryName": "Burger",
+            "categoryPicture": "photo-1571091718767-18b5b1457add.jpg"
         }
-    ]
+    ],
+    "restaurantDescription": "Taco's Made fresh",
+    "restaurantIcon": "tacoshoplogo.jpg",
+    "restaurantName": "Bill's Taco Shop"
 }
