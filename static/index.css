@@ -49,3 +49,107 @@ ul.dropdown-cart li .item-right {
 ul.dropdown-cart li .item-right button {
     margin-top: 14px;
 }
+
+body {
+    /* background-image: linear-gradient(to top, black, gray);
+     */
+     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+
+.overlay-text {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    text-transform: uppercase;
+
+    color:purple;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 100px; 
+    
+    /* filter:drop-shadow(0px 0px 7px rgb(255, 255, 255)); */
+    /* filter: */
+}
+
+.col-md-4 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 200px) {
+    .column {
+      flex: 50%;
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 200px) {
+    .column {
+      flex: 50%;
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+.thumbnail-img {
+    border-radius: 20px;
+}
+
+.category-thumbnail .thumbnail-img{
+    filter:grayscale(100%);
+    transition: all 0.5s;
+}
+
+
+.category-thumbnail:hover .thumbnail-img  {
+    filter:grayscale(0%);
+  }
+
+.category-thumbnail .overlay-text{
+    transition: all 2s;
+    filter: hue-rotate(0deg) drop-shadow(0px 0px 10px rgb(77, 245, 245));
+
+}
+
+.category-thumbnail:hover .overlay-text  {
+    /* filter:grayscale(100%); */
+    filter: hue-rotate(180deg) drop-shadow(0px 0px 10px white);
+}
+
+#categoryHeader {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* .thumbnail > img, .overlay-text {
+    position: absolute;
+    margin:10px;
+} */
+
