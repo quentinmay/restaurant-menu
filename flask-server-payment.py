@@ -9,15 +9,6 @@ from config import stripe_keys, user_info
 from helpers import success_response, error_response, check_json
 # refer from: https://stripe.com/docs/legacy-checkout/flask
 # bank account: https://stripe.com/docs/testing
-# sudo PUBLISHABLE_KEY=pk_test_TYooMQauvdEDq54NiTphI7jx SECRET_KEY=sk_test_4eC39HqLyjWDarjtT1zdp7dc python3 flask-server.py
-
-# stripe setting for payment
-# stripe_keys = {
-#   'secret_key': os.environ['SECRET_KEY'],
-#   'publishable_key': os.environ['PUBLISHABLE_KEY']
-# }
-
-# stripe.api_key = stripe_keys['secret_key']
 
 app = Flask(__name__, template_folder="public")
 
@@ -122,12 +113,22 @@ def picture():
 
 @app.route('/confirmation')
 def confirmation_page():
-    id = request.args.get('id', default="", type=str)
-    amount = request.args.get('amount', default="", type=str)
-    email = request.args.get('email', default="", type=str)
-    product = request.args.get('product', default="", type=str)
-	
-    return render_template('confirmation.html', id=id, email=email, product=product, amount=amount)
+	id = request.args.get('id', default="", type=str)
+	amount = request.args.get('amount', default="", type=str)
+	email = request.args.get('email', default="", type=str)
+	product = request.args.get('product', default="", type=str)
+
+	order_dictionary = {
+		"email": email,
+		"amount": amount,
+		"product": product
+	}
+	with open("orders.json", "r+") as file:
+		data = json.load(file)
+		data.update(order_dictionary)
+		file.seek(0)
+		json.dump(data, file)
+	return render_template('confirmation.html', id=id, email=email, product=product, amount=amount)
 
 
 @app.route('/public/charge', methods=['POST'])

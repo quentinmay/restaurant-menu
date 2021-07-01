@@ -3,6 +3,8 @@ public/*
 
 config.py
 
+orders.json
+
 .DS_Store
 
 !public/media/favicon.ico
