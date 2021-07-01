@@ -34,7 +34,7 @@ def authenticate_user(auth):
 
 @app.route('/', methods=['GET'])
 def index():
-	return render_template('tacoshop.html')
+	return render_template('default.html')
 
 @app.route('/<filename>')
 def open_file(filename, methods=['GET']):
