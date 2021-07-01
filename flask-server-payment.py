@@ -28,7 +28,17 @@ def index():
 	return render_template('default.html')
 
 @app.route('/orders/<string:auth>')
-def same(auth, methods=['GET']):
+def orders(auth, methods=['GET']):
+		if request.method == 'GET':
+			if auth == user_info["username"] + ":" + user_info["password"]:
+				# with open("orders.json") as jsonfile:
+				# 	jsondata = json.load(jsonfile)
+
+				return render_template('orders.html', username=user_info["username"], password=user_info["password"])
+		return "Access denied"
+
+@app.route('/ordersData/<string:auth>')
+def orders_data(auth, methods=['GET']):
 		if request.method == 'GET':
 			if auth == user_info["username"] + ":" + user_info["password"]:
 				with open("orders.json") as jsonfile:
@@ -125,7 +135,7 @@ def confirmation_page():
 	}
 	with open("orders.json", "r+") as file:
 		data = json.load(file)
-		data["orders"].append(order_dictionary)
+		data["orders"].insert(0, order_dictionary)
 		file.seek(0)
 		json.dump(data, file)
 	return render_template('confirmation.html', id=id, email=email, product=product, amount=amount)

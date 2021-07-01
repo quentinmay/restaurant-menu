@@ -148,8 +148,10 @@ body {
     font-weight: bold;
 }
 
-/* .thumbnail > img, .overlay-text {
-    position: absolute;
-    margin:10px;
-} */
+.order {
+    border-radius: 10px;
+    background: linear-gradient(to top, rgba(238,174,202,1), azure);
+    margin:40px;
+    padding:20px;
+}
 
