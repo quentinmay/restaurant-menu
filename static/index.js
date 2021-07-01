@@ -85,7 +85,7 @@ function initCheckoutButton() {
 
 function stripeHandlder(totalAmount, productStr) {
     var handler = StripeCheckout.configure({
-        key: $('#stripeKey').attr("data-key"),
+        key: "pk_test_TYooMQauvdEDq54NiTphI7jx",
         locale: "auto",
         token: function(token) {
 
