@@ -1,0 +1,10 @@
+stripe_keys = {
+    'secret_key': "",
+    'publishable_key': ""
+}
+
+user_info = {
+	"username" : "username",
+	"password" : "password",
+	"port_config": 80
+}

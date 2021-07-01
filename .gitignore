@@ -1,6 +1,8 @@
 public/media/*
 public/*
 
+config.py
+
 .DS_Store
 
 !public/media/favicon.ico
