@@ -125,7 +125,7 @@ def confirmation_page():
 	}
 	with open("orders.json", "r+") as file:
 		data = json.load(file)
-		data.update(order_dictionary)
+		data["orders"].append(order_dictionary)
 		file.seek(0)
 		json.dump(data, file)
 	return render_template('confirmation.html', id=id, email=email, product=product, amount=amount)
