@@ -1,41 +1,43 @@
-function initAddProductButton() {
-    $('.btn-product').click(function(e) {
-        e.preventDefault();
+function initAddProductButton(buttonElem) {
 
-        var elem = $(this);
+    console.log('button product click');
 
-        // get values
-        var amount = parseInt(elem.attr('data-amount'));
-        var product = elem.attr('data-product');
-        var imgSrc = elem.closest('.thumbnail').children('img').attr('src');
 
-        // add to cart html
-        var html = `
+    var elem = $(buttonElem);
+    // console.log(elem)
+    //get values
+    var amount = parseInt(elem.attr('data-amount'));
+    var product = elem.attr('data-product');
+    var imgSrc = elem.closest('.thumbnail').children('img').attr('src');
+    // console.log(amount);
+
+    // add to cart html
+    var html = `
             <li>
                 <span class="item">
                     <span class="item-left">
                         <img src="${imgSrc}" alt="" />
                         <span class="item-info">
                             <span>${product}</span>
-                            <span>$ ${(amount/100).toFixed( 2 )}</span>
+                            <span>$ ${parseInt(amount / 100).toFixed(2)}</span>
                         </span>
                     </span>
                 </span>
             </li>
         `
-        $('.dropdown-cart').prepend(html);
+    $('.dropdown-cart').prepend(html);
 
-        // add to localstorage
-        var obj = {
-            "amount": amount,
-            "product": product
-        }
-        saveToLocal(obj)
+    // add to localstorage
+    var obj = {
+        "amount": amount,
+        "product": product
+    }
+    saveToLocal(obj)
 
-        // increase counter
-        var currentCount = parseInt($('#cart-count').html());
-        $('#cart-count').html(currentCount += 1);
-    })
+    // increase counter
+    var currentCount = parseInt($('#cart-count').html());
+    $('#cart-count').html(currentCount += 1);
+    // })
 }
 
 function saveToLocal(obj) {
@@ -57,7 +59,7 @@ function clearCart() {
 
 function initCheckoutButton() {
 
-    $('#checkout-cart').click(function(e) {
+    $('#checkout-cart').click(function (e) {
         e.preventDefault();
         //
         var productStr = '';
@@ -65,7 +67,7 @@ function initCheckoutButton() {
         // build product string
         var cart = JSON.parse(localStorage.getItem('cart'));
         // build vars for cart modal
-        cart.forEach(function(item, index) {
+        cart.forEach(function (item, index) {
             totalAmount += item.amount;
             productStr += item.product;
             // last one
@@ -74,7 +76,7 @@ function initCheckoutButton() {
             }
         });
         // open cart modal
-        var handler = stripeHandlder(totalAmount, productStr);
+        var handler = stripeHandler(totalAmount, productStr);
         handler.open({
             name: productStr,
             description: productStr,
@@ -83,11 +85,11 @@ function initCheckoutButton() {
     })
 }
 
-function stripeHandlder(totalAmount, productStr) {
+function stripeHandler(totalAmount, productStr) {
     var handler = StripeCheckout.configure({
         key: "pk_test_TYooMQauvdEDq54NiTphI7jx",
         locale: "auto",
-        token: function(token) {
+        token: function (token) {
 
             var data = {
                 "email": token.email,
@@ -101,12 +103,12 @@ function stripeHandlder(totalAmount, productStr) {
                 method: "POST",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(data),
-            }).done(function(response) {
+            }).done(function (response) {
                 var r = response.response;
                 // redirect
-                var url = `/confirmation?amount=${(r.amount/100).toFixed( 2 )}&id=${r.id}&email=${r.billing_details.name}&product=${r.description}`
+                var url = `/confirmation?amount=${(r.amount / 100).toFixed(2)}&id=${r.id}&email=${r.billing_details.name}&product=${r.description}`
                 window.location.href = url;
-            }).fail(function(response) {
+            }).fail(function (response) {
                 console.log(response)
             });
         }
@@ -116,8 +118,8 @@ function stripeHandlder(totalAmount, productStr) {
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
     clearCart();
-    initAddProductButton();
+    // initAddProductButton();
     initCheckoutButton();
 });

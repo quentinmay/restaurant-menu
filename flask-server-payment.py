@@ -5,7 +5,7 @@ from PIL import Image
 import io
 import os
 import stripe
-from config import stripe_keys
+from config import stripe_keys, user_info
 from helpers import success_response, error_response, check_json
 # refer from: https://stripe.com/docs/legacy-checkout/flask
 # bank account: https://stripe.com/docs/testing
@@ -22,7 +22,7 @@ from helpers import success_response, error_response, check_json
 app = Flask(__name__, template_folder="public")
 
 def authenticate_user(auth):
-	credentials = "username:password"
+	credentials = user_info["username"] + ":" + user_info["password"]
 	message_bytes = credentials.encode('ascii')
 	base64_bytes = base64.b64encode(message_bytes)
 	base64_credentials = base64_bytes.decode('ascii')
@@ -34,7 +34,7 @@ def authenticate_user(auth):
 
 @app.route('/', methods=['GET'])
 def index():
-	return render_template('tacoshop.html')
+	return render_template('default.html')
 
 @app.route('/<filename>')
 def open_file(filename, methods=['GET']):
@@ -58,10 +58,8 @@ def open_file(filename, methods=['GET']):
 				return send_file('public/' + filename)
 
 			else:
-				return render_template(filename + '.html')
+				return render_template('template.html')
 
-		elif request.method == 'POST':
-			return "123"
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -156,4 +154,4 @@ def charge_api():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0', port=user_info["port_config"])

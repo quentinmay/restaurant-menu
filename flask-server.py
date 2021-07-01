@@ -7,7 +7,7 @@ import io
 app = Flask(__name__, template_folder="public")
 
 def authenticate_user(auth):
-	credentials = "username:password"
+	credentials = user_info["username"] + ":" + user_info["password"]
 	message_bytes = credentials.encode('ascii')
 	base64_bytes = base64.b64encode(message_bytes)
 	base64_credentials = base64_bytes.decode('ascii')
@@ -42,8 +42,6 @@ def open_file(filename, methods=['GET']):
 			else:
 				return render_template(filename + '.html')
 
-		elif request.method == 'POST':
-			return "123"
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -76,4 +74,4 @@ def picture():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0', port=user_info["port_config"])
