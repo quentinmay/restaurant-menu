@@ -58,7 +58,7 @@ def open_file(filename, methods=['GET']):
 				return send_file('public/' + filename)
 
 			else:
-				return render_template('template.html')
+				return render_template('template.html', key=stripe_keys['publishable_key'])
 
 
 @app.route('/upload', methods=['POST'])
