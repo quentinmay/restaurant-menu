@@ -10,6 +10,7 @@ config.py
 !public/sample.html
 !public/sample.css
 !public/sample.json
+!public/template.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
